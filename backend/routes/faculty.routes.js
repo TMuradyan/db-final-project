@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const pool = require("../db");
 
-// CREATE
 router.post("/", async (req, res) => {
   const { faculty_name, dean, places_count } = req.body;
   const result = await pool.query(
@@ -11,13 +10,11 @@ router.post("/", async (req, res) => {
   res.json(result.rows[0]);
 });
 
-// READ ALL
 router.get("/", async (req, res) => {
   const result = await pool.query("SELECT * FROM faculty");
   res.json(result.rows);
 });
 
-// READ ONE
 router.get("/:id", async (req, res) => {
   const result = await pool.query("SELECT * FROM faculty WHERE faculty_id=$1", [
     req.params.id,
@@ -25,7 +22,6 @@ router.get("/:id", async (req, res) => {
   res.json(result.rows[0]);
 });
 
-// UPDATE
 router.put("/:id", async (req, res) => {
   const { faculty_name, dean, places_count } = req.body;
   const result = await pool.query(
@@ -36,7 +32,6 @@ router.put("/:id", async (req, res) => {
   res.json(result.rows[0]);
 });
 
-// DELETE
 router.delete("/:id", async (req, res) => {
   await pool.query("DELETE FROM faculty WHERE faculty_id=$1", [req.params.id]);
   res.json({ message: "Faculty deleted" });

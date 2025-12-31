@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const pool = require("./db"); // подключение к базе PostgreSQL
+const pool = require("./db");
 
 async function runMigrations() {
   try {

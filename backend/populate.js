@@ -7,7 +7,6 @@ const NUM_FACULTIES = 20;
 const NUM_EDUCATIONS = 100;
 const NUM_STUDENTS = 10000;
 
-// Создание факультетов
 async function createFaculties() {
   const faculties = [];
   for (let i = 0; i < NUM_FACULTIES; i++) {
@@ -21,8 +20,6 @@ async function createFaculties() {
   }
   return faculties;
 }
-
-// Создание специальностей
 async function createEducations() {
   const educations = [];
   for (let i = 0; i < NUM_EDUCATIONS; i++) {
@@ -38,7 +35,6 @@ async function createEducations() {
   return educations;
 }
 
-// Создание студентов
 async function createStudents(faculties, educations) {
   for (let i = 0; i < NUM_STUDENTS; i++) {
     const faculty = faculties[Math.floor(Math.random() * faculties.length)];
@@ -61,7 +57,6 @@ async function createStudents(faculties, educations) {
   }
 }
 
-// Главная функция
 async function main() {
   try {
     console.log("Создаём факультеты...");
